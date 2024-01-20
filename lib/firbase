@@ -1,0 +1,67 @@
+- board1
+  - outputs
+    - digital
+      - 2: 1
+      - 13: 0
+      - 14: 0
+you can write like this:
+final DatabaseReference databaseReference = FirebaseDatabase.instance.reference().child('board1/outputs/digital');
+
+import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  final DatabaseReference databaseReference =
+      FirebaseDatabase.instance.reference().child('board1/outputs/digital');
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('LED Control App'),
+        ),
+        body: StreamBuilder<Event>(
+          stream: databaseReference.onValue,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final data = snapshot.data!.snapshot.value;
+
+              if (data != null) {
+                // Process and extract pin and value
+                final parts = data.split(":");
+                if (parts.length == 2) {
+                  int pin = int.tryParse(parts[0]);
+                  int value = int.tryParse(parts[1]);
+                  if (pin != null && value != null) {
+                    // Control the LED based on pin and value
+                    controlLed(pin, value);
+                  }
+                }
+              } else {
+                return Text('No data available');
+              }
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              return Text('Loading data...');
+            }
+            return Container(); // You can return an empty container or a loading widget here.
+          },
+        ),
+      ),
+    );
+  }
+
+  // Implement the controlLed function to send commands to your microcontroller to control the LED.
+  void controlLed(int pin, int value) {
+    // Implement your logic here to control the LED based on pin and value.
+  }
+}

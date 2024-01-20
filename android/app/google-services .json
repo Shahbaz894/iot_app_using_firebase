@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "76628789109",
+    "project_id": "shahbaziotapp",
+    "storage_bucket": "shahbaziotapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76628789109:android:1d48b11f0699248eb4f53c",
+        "android_client_info": {
+          "package_name": "com.example.iot_app_using_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8EatFFINeZp9cvoqcfVQsOD1KS2U9FYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
