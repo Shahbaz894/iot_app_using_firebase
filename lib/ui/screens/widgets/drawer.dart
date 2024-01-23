@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iot_app_using_firebase/ui/auth_screen/login_screen.dart';
-import 'package:iot_app_using_firebase/ui/chartsa/pie_charts.dart';
+import 'package:iot_app_using_firebase/ui/chartsa/radial_guage.dart';
 
 import '../../chartsa/line_chart.dart';
 
@@ -51,13 +51,7 @@ class AppDrawer extends StatelessWidget {
               // Add your navigation logic here
             },
           ),
-          ListTile(
-            leading: Icon(Icons.show_chart),
-            title: const Text('Charts'),
-            onTap: () {
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>const RadialGuageScreen()));
-            },
-          ),
+
           ListTile(
             leading: Icon(Icons.stacked_line_chart),
             title: const Text('Line Charts'),

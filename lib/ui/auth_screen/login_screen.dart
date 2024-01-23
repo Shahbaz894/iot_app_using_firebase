@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:iot_app_using_firebase/rough.dart';
 import 'package:iot_app_using_firebase/ui/auth_screen/sign_up_screen.dart';
 import 'package:iot_app_using_firebase/ui/iot_screen.dart';
+import 'package:iot_app_using_firebase/ui/screens/led_control_screen.dart';
 
 import '../../uitils/utils.dart';
 import '../screens/home_screen.dart';
@@ -60,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
         loading = false;
       });
       // Successfully logged in, navigate to the HomeScreen
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => LedControlScreen()));
     }).onError((error, stackTrace) {
       Utilis().toastMessage(error.toString());
       setState(() {

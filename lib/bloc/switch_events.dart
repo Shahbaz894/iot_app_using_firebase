@@ -9,6 +9,7 @@ abstract class SwitchEvent extends Equatable{
 
 class SwitchOnOffEvent extends SwitchEvent{}
 
+
 class SliderEvent extends SwitchEvent {
   double slider;
    SliderEvent({required this.slider});

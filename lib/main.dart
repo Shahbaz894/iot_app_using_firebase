@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iot_app_using_firebase/ui/auth_screen/login_screen.dart';
-import 'package:iot_app_using_firebase/ui/chartsa/pie_charts.dart';
+import 'package:iot_app_using_firebase/ui/chartsa/radial_guage.dart';
 import 'package:iot_app_using_firebase/ui/iot_screen.dart';
 import 'package:iot_app_using_firebase/ui/screens/app_data_provider.dart';
 import 'package:firebase_core/firebase_core.dart';

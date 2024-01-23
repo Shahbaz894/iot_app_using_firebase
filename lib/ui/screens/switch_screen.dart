@@ -15,7 +15,7 @@ class SensorReadingScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('IoT Control and Monitoring'),
+          title: const Text('IoT Control and Monitoring'),
         ),
         body: Center(
           child: Column(
@@ -30,7 +30,7 @@ class SensorReadingScreen extends StatelessWidget {
                   } else if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
                   } else {
-                    return Text('Loading Temperature...');
+                    return const Text('Loading Temperature...');
                   }
                 },
               ),
@@ -43,7 +43,7 @@ class SensorReadingScreen extends StatelessWidget {
                   } else if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
                   } else {
-                    return Text('Loading Humidity...');
+                    return const Text('Loading Humidity...');
                   }
                 },
               ),
@@ -56,7 +56,7 @@ class SensorReadingScreen extends StatelessWidget {
                   } else if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
                   } else {
-                    return Text('Loading Pressure...');
+                    return const Text('Loading Pressure...');
                   }
                 },
               ),
@@ -65,7 +65,7 @@ class SensorReadingScreen extends StatelessWidget {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     final digitalOutputs = snapshot.data!.snapshot.value as Map<String, dynamic>;
-                    print("Firebase Data: $digitalOutputs");
+
                     final ledStatus2 = digitalOutputs["2"] ?? 0;
                     final ledStatus13 = digitalOutputs["13"] ?? 0;
                     final ledStatus14 = digitalOutputs["14"] ?? 0;
@@ -96,30 +96,11 @@ class SensorReadingScreen extends StatelessWidget {
                     print('Error: ${snapshot.error}');
                     return Text('Error: ${snapshot.error}');
                   } else {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   }
                 },
               ),
 
-              // StreamBuilder(
-              //   stream: databaseReference.child("led_status").onValue,
-              //   builder: (context, snapshot) {
-              //     if (snapshot.hasData) {
-              //       // final ledStatus = snapshot.data!.snapshot.value;
-              //       final ledStatus = snapshot.data!.snapshot.value as bool;
-              //       return Switch(
-              //         value: ledStatus ?? false ,
-              //         onChanged: (newValue) {
-              //           _toggleLED(newValue);
-              //         },
-              //       );
-              //     } else if (snapshot.hasError) {
-              //       return Text('Error: ${snapshot.error}');
-              //     } else {
-              //       return Text('Loading LED Status...');
-              //     }
-              //   },
-              // ),
             ],
           ),
         ),
@@ -132,8 +113,4 @@ class SensorReadingScreen extends StatelessWidget {
     });
   }
 
-
-// void _toggleLED(bool status,String outputPin, int value) {
-  //   databaseReference.update({'led_status': status});
-  // }
 }
